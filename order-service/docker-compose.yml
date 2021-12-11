@@ -16,6 +16,8 @@ services:
       - MONGO_INITDB_DATABASE=orderDB
     ports:
       - 27017:27017
+    volumes:
+      - ./docker-volumes/mongodb/data:/data/db
 
   mongoui:
     image: mongo-express:latest
@@ -25,10 +27,14 @@ services:
       - 12111:8081
     depends_on:
       - mongodb
+    entrypoint: [sh, -c, "sleep 5s && tini -- /docker-entrypoint.sh mongo-express"]
 
   mailhog:
     image: mailhog/mailhog
+    command: ["-storage=maildir", "-maildir-path=/maildir"]
     logging:
       driver: 'none'  # disable saving logs
     ports:
       - 12112:8025 # web ui
+    volumes:
+      - ./docker-volumes/mailhog/data:/maildir
