@@ -27,7 +27,7 @@ services:
       - 12111:8081
     depends_on:
       - mongodb
-    entrypoint: [sh, -c, "sleep 5s && tini -- /docker-entrypoint.sh mongo-express"]
+    entrypoint: [sh, -c, "sleep 5s && tini -- /docker-entrypoint.sh mongo-express"] # https://github.com/mongo-express/mongo-express-docker/issues/39#issuecomment-991798043
 
   mailhog:
     image: mailhog/mailhog
