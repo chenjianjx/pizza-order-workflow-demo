@@ -1,7 +1,7 @@
 
 # Plan
 
-## Create a spring boot micro service with dummy implementation
+## Create a spring boot micro service with dummy implementation  -- done
 * Create a spring boot application
   * Contains a db starter
   * Contains a rest template starter  

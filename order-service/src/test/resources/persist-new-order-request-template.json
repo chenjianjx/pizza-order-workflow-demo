@@ -1,0 +1,7 @@
+{
+  "orderId": "${someOrderId}",
+  "originCreateOrderRequest": {
+    "pizzaType": "MEAT_LOVERS",
+    "customerEmail": "test@not-exsting.com"
+  }
+}

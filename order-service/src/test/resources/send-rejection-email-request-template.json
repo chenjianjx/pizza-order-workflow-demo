@@ -1,0 +1,9 @@
+{
+  "orderId": "${someOrderId}",
+  "originApproveOrderRequest": {
+    "orderId": "${someOrderId}",
+    "approved": false,
+    "reason": "Cook has left",
+    "approver": "David Beckham"
+  }
+}
