@@ -11,19 +11,25 @@ services:
 
   mongodb:
     image: mongo:latest
+    environment:
+      - MONGO_INITDB_DATABASE=order
     ports:
       - 27017:27017
+    volumes:
+      - mongodata:/data/db
 
-  mongoclient:
-    image: mongoclient/mongoclient:latest
-    depends_on:
-      - mongodb
-    ports:
-      - 3000:3000
+#  mongoclient:
+#    image: mongoclient/mongoclient:latest
+#    depends_on:
+#      - mongodb
+#    environment:
+#      - MONGO_SERVER=mongodb
+#      #- MONGO_INITDB_DATABASE=order
+##      - MONGO_INITDB_ROOT_USERNAME=admin
+##      - MONGO_INITDB_ROOT_PASSWORD=admin
+#    ports:
+#      - 3000:3000
 
-#    networks:
-#      - spring-cloud-network
 
-#networks:
-#  spring-cloud-network:
-#    driver: bridge
+volumes:
+  mongodata:

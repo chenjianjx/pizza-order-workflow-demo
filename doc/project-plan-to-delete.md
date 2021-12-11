@@ -27,3 +27,7 @@
 
 ## Update Readme.md
 * How to run
+  * The servers
+  * CURL to do test
+  
+## Delete this file
