@@ -32,7 +32,7 @@ public class OrderActivitiesImpl implements OrderActivities {
         try {
             ObjectNode payload = objectMapper.createObjectNode();
             payload.put("orderId", orderId.toString());
-            payload.set("originCreateOrderRequest", createOrderRequest);
+            payload.set("originalCreateOrderRequest", createOrderRequest);
 
             Request request = new Request.Builder()
                     .url(orderServiceEndpoint + "/persist-new-order")
@@ -42,7 +42,30 @@ public class OrderActivitiesImpl implements OrderActivities {
                 int code = response.code();
                 String body = response.body().string();
                 if (code != 200) {
-                    throw new RuntimeException("Order service returns " + code + " with body " + body);
+                    throw new RuntimeException("order-service returns " + code + " with body " + body);
+                }
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public void sendRejectionEmail(UUID orderId, ObjectNode approveOrderRequest) {
+        try {
+            ObjectNode payload = objectMapper.createObjectNode();
+            payload.put("orderId", orderId.toString());
+            payload.set("originalApproveOrderRequest", approveOrderRequest);
+
+            Request request = new Request.Builder()
+                    .url(orderServiceEndpoint + "/send-rejection-email")
+                    .post(RequestBody.create(objectMapper.writeValueAsString(payload), JSON))
+                    .build();
+            try (Response response = httpClient.newCall(request).execute()) {
+                int code = response.code();
+                String body = response.body().string();
+                if (code != 200) {
+                    throw new RuntimeException("order-service returns " + code + " with body " + body);
                 }
             }
         } catch (IOException e) {

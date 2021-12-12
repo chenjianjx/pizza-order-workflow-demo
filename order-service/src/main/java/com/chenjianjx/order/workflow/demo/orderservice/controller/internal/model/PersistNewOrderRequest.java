@@ -17,5 +17,5 @@ public class PersistNewOrderRequest {
     /**
      * json of the original {@link CreateOrderRequest}
      */
-    private ObjectNode originCreateOrderRequest;
+    private ObjectNode originalCreateOrderRequest;
 }

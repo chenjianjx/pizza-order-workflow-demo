@@ -1,6 +1,6 @@
 {
   "orderId": "${someOrderId}",
-  "originApproveOrderRequest": {
+  "originalApproveOrderRequest": {
     "orderId": "${someOrderId}",
     "approved": false,
     "reason": "Cook has left",

@@ -6,6 +6,7 @@ services:
     build: .
     ports:
       - 12110:8080
+      - 12119:12119 #jdwp
     depends_on:
       - mongodb
       - mailhog

@@ -41,7 +41,7 @@ public class InternalController {
         CreateOrderRequest createOrderRequest;
         try {
             createOrderRequest =
-                    objectMapper.treeToValue(request.getOriginCreateOrderRequest(), CreateOrderRequest.class);
+                    objectMapper.treeToValue(request.getOriginalCreateOrderRequest(), CreateOrderRequest.class);
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }
@@ -62,7 +62,7 @@ public class InternalController {
         ApproveOrderRequest approveOrderRequest;
         try {
             approveOrderRequest =
-                    objectMapper.treeToValue(request.getOriginApproveOrderRequest(), ApproveOrderRequest.class);
+                    objectMapper.treeToValue(request.getOriginalApproveOrderRequest(), ApproveOrderRequest.class);
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }

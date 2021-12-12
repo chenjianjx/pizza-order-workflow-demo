@@ -10,7 +10,7 @@
 * Create the dummy controllers
 
 
-## Create the workflow engine 
+## Create the workflow engine  -- done 
 * A spring boot application which contains a main calls for worker
   * Contains a rest template starter  
 * Create a docker compose which can 
@@ -20,14 +20,12 @@
   * Accept signals
   
 
-## Integration
+## Integration -- done
 * Start the workflow from order service, using "workflow endpoint" (interface + implementation) 
 * Call order service to do real job from the worker 
 
 ## Advanced flow
-* succeed / fail the whole flow
-* Query
-* Reeantrantness (document it )
+* Query -- done
 
 ## Update Readme.md
 * How to run

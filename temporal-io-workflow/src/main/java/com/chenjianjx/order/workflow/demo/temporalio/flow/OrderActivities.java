@@ -11,4 +11,7 @@ public interface OrderActivities {
 
     @ActivityMethod
     void persistNewOrder(UUID orderId, ObjectNode createOrderRequest);
+
+    @ActivityMethod
+    void sendRejectionEmail(UUID orderId, ObjectNode approveOrderRequest);
 }

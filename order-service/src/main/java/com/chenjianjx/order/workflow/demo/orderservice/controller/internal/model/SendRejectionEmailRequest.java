@@ -17,6 +17,6 @@ public class SendRejectionEmailRequest {
     /**
      * json of the original {@link  ApproveOrderRequest}
      */
-    private ObjectNode originApproveOrderRequest;
+    private ObjectNode originalApproveOrderRequest;
 
 }
