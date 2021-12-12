@@ -1,4 +1,4 @@
-version: '2'
+version: '3'
 
 services:
 
@@ -6,9 +6,11 @@ services:
     build: .
     ports:
       - 12110:8080
+      - 12119:12119 #jdwp
     depends_on:
       - mongodb
       - mailhog
+      - dockerhost
 
   mongodb:
     image: mongo
@@ -38,3 +40,8 @@ services:
       - 12112:8025 # web ui
     volumes:
       - ./docker-volumes/mailhog/data:/maildir
+
+
+  dockerhost:  #See:  https://github.com/qoomon/docker-host
+    image: qoomon/docker-host
+    cap_add: [ 'NET_ADMIN', 'NET_RAW' ]

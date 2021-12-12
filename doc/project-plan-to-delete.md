@@ -10,20 +10,22 @@
 * Create the dummy controllers
 
 
-## Create the workflow engine 
+## Create the workflow engine  -- done 
 * A spring boot application which contains a main calls for worker
   * Contains a rest template starter  
 * Create a docker compose which can 
     * Start up the temporal.io server
     * Start up the workers (a dummy one)
-* Implement the workflow, activities and the worker
+* Implement the workflow, activities and the worker that I can think of 
   * Accept signals
   
 
-## Integration
+## Integration -- done
 * Start the workflow from order service, using "workflow endpoint" (interface + implementation) 
 * Call order service to do real job from the worker 
 
+## Advanced flow
+* Query -- done
 
 ## Update Readme.md
 * How to run

@@ -8,6 +8,7 @@ import com.chenjianjx.order.workflow.demo.orderservice.controller.internal.model
 import com.chenjianjx.order.workflow.demo.orderservice.controller.internal.model.SendRejectionEmailRequest;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -21,6 +22,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/internal")
+@Slf4j
 public class InternalController {
 
     @Autowired
@@ -35,10 +37,11 @@ public class InternalController {
 
     @PostMapping("/persist-new-order")
     public void persistNewOrder(@RequestBody PersistNewOrderRequest request) {
+        log.info("Received 'persistNewOrder' from workflow engine with orderId {}", request.getOrderId());
         CreateOrderRequest createOrderRequest;
         try {
             createOrderRequest =
-                    objectMapper.treeToValue(request.getOriginCreateOrderRequest(), CreateOrderRequest.class);
+                    objectMapper.treeToValue(request.getOriginalCreateOrderRequest(), CreateOrderRequest.class);
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }
@@ -55,11 +58,11 @@ public class InternalController {
 
     @PostMapping("/send-rejection-email")
     public void sendRejectionEmail(@RequestBody SendRejectionEmailRequest request) {
-
+        log.info("Received 'sendRejectionEmail' from workflow engine with orderId {}", request.getOrderId());
         ApproveOrderRequest approveOrderRequest;
         try {
             approveOrderRequest =
-                    objectMapper.treeToValue(request.getOriginApproveOrderRequest(), ApproveOrderRequest.class);
+                    objectMapper.treeToValue(request.getOriginalApproveOrderRequest(), ApproveOrderRequest.class);
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }
