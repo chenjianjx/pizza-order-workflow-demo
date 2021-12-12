@@ -9,6 +9,7 @@ services:
     depends_on:
       - mongodb
       - mailhog
+      - dockerhost
 
   mongodb:
     image: mongo
@@ -38,3 +39,8 @@ services:
       - 12112:8025 # web ui
     volumes:
       - ./docker-volumes/mailhog/data:/maildir
+
+
+  dockerhost:  #See:  https://github.com/qoomon/docker-host
+    image: qoomon/docker-host
+    cap_add: [ 'NET_ADMIN', 'NET_RAW' ]

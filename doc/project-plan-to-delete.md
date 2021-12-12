@@ -16,7 +16,7 @@
 * Create a docker compose which can 
     * Start up the temporal.io server
     * Start up the workers (a dummy one)
-* Implement the workflow, activities and the worker
+* Implement the workflow, activities and the worker that I can think of 
   * Accept signals
   
 
@@ -24,6 +24,9 @@
 * Start the workflow from order service, using "workflow endpoint" (interface + implementation) 
 * Call order service to do real job from the worker 
 
+## Advanced flow
+* succeed / fail the whole flow
+* Query
 
 ## Update Readme.md
 * How to run
