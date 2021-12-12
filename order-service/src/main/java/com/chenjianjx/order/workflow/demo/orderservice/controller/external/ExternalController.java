@@ -1,15 +1,25 @@
 package com.chenjianjx.order.workflow.demo.orderservice.controller.external;
 
-import com.chenjianjx.order.workflow.demo.orderservice.biz.entity.Order;
+import com.chenjianjx.order.workflow.demo.orderservice.biz.workflow.OrderFlowService;
 import com.chenjianjx.order.workflow.demo.orderservice.controller.external.model.ApproveOrderRequest;
 import com.chenjianjx.order.workflow.demo.orderservice.controller.external.model.CreateOrderRequest;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
 
+@Slf4j
 @RestController
 @RequestMapping("/orders")
 public class ExternalController {
+
+    @Autowired
+    OrderFlowService orderFlowService;
+
+    @Autowired
+    ObjectMapper objectMapper;
 
     /**
      * From customer system
@@ -19,8 +29,10 @@ public class ExternalController {
      */
     @PostMapping
     public UUID createOrder(@RequestBody CreateOrderRequest request) {
-        //TODO start the workflow
-        return UUID.randomUUID();
+        UUID orderId = UUID.randomUUID();
+        orderFlowService.acceptOrder(orderId, objectMapper.valueToTree(request));
+        log.info("Sent 'acceptOrder' to workflow engine with orderId {}", orderId);
+        return orderId;
     }
 
     /**
@@ -31,6 +43,7 @@ public class ExternalController {
     @PutMapping
     public void approveOrder(@RequestBody ApproveOrderRequest request) {
         //TODO send a signal to workflow
+        log.info("Sent 'approveOrder' to workflow engine with orderId {}", request.getOrderId());
     }
 
 

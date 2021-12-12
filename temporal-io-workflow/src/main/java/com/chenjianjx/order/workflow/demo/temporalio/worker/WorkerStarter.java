@@ -1,7 +1,6 @@
 package com.chenjianjx.order.workflow.demo.temporalio.worker;
 
-import com.chenjianjx.order.workflow.demo.temporalio.flow.OrderActivity;
-import com.chenjianjx.order.workflow.demo.temporalio.flow.impl.OrderActivityImpl;
+import com.chenjianjx.order.workflow.demo.temporalio.flow.OrderActivities;
 import com.chenjianjx.order.workflow.demo.temporalio.flow.impl.OrderFlowImpl;
 import io.temporal.client.WorkflowClient;
 import io.temporal.serviceclient.WorkflowServiceStubs;
@@ -25,7 +24,7 @@ public class WorkerStarter {
     String taskQueue;
 
     @Autowired
-    OrderActivity orderActivity;
+    OrderActivities orderActivities;
 
     @PostConstruct
     @Profile("!test")
@@ -38,7 +37,7 @@ public class WorkerStarter {
         Worker worker = workerFactory.newWorker(taskQueue);
 
         worker.registerWorkflowImplementationTypes(OrderFlowImpl.class);
-        worker.registerActivitiesImplementations(orderActivity);
+        worker.registerActivitiesImplementations(orderActivities);
 
         workerFactory.start();
     }

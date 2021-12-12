@@ -20,6 +20,7 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-elasticsearch'
+	implementation 'org.springframework.boot:spring-boot-starter-json'
 	implementation group: 'com.squareup.okhttp3', name: 'okhttp', version: '4.9.3'
 	implementation group: 'io.temporal', name: 'temporal-sdk', version: '1.5.0'
 	compileOnly 'org.projectlombok:lombok'

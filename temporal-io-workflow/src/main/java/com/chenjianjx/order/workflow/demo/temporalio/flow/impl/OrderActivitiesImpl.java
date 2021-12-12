@@ -1,6 +1,6 @@
 package com.chenjianjx.order.workflow.demo.temporalio.flow.impl;
 
-import com.chenjianjx.order.workflow.demo.temporalio.flow.OrderActivity;
+import com.chenjianjx.order.workflow.demo.temporalio.flow.OrderActivities;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import lombok.extern.slf4j.Slf4j;
@@ -14,7 +14,7 @@ import java.util.UUID;
 
 @Slf4j
 @Component
-public class OrderActivityImpl implements OrderActivity {
+public class OrderActivitiesImpl implements OrderActivities {
 
     @Value("${orderService.internal.endpoint}")
     String orderServiceEndpoint;

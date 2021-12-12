@@ -7,7 +7,7 @@ import io.temporal.activity.ActivityMethod;
 import java.util.UUID;
 
 @ActivityInterface
-public interface OrderActivity {
+public interface OrderActivities {
 
     @ActivityMethod
     void persistNewOrder(UUID orderId, ObjectNode createOrderRequest);
