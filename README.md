@@ -1,5 +1,5 @@
 # pizza-order-workflow-demo
-Demo integration between a microservice and different workflow engines (currently only temporal.io) 
+This project demostrates the integration between a microservice and different workflow engines (currently only temporal.io) 
 
 ## Biz Requirements
 
