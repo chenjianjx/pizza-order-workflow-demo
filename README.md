@@ -14,7 +14,7 @@ Implement the pizza order process from [camunda doc](https://camunda.com/blog/20
 
 ### Order service is the facade
 
-External services will invoke the `Order Service` using parameters like `orderId`. They know nothing about workflow engine.
+External services will invoke the `Order Service` using parameters like `orderId`. They know nothing about the workflow engine.
 
 ### Order workflow engine focuses on `flow` 
 
@@ -44,7 +44,7 @@ See [Workflow Execution Showcase](doc/workflow-execution-showcase.md)
 
 ## How things work
 
-Understand the details by reading code. There are some guidance below.
+Understand the details by reading code. There is some guidance below.
 
 ### Order Service Code
 ![order-service-code-map](order-service/code-map.drawio.png)
