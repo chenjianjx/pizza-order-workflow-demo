@@ -21,5 +21,21 @@ The workflow knows little about order's biz logic.
 * It won't store order data itself
 
 
-## Run
+## Try it
 
+### Prerequisites 
+
+* Docker
+* docker-composer
+* JDK 11+
+
+### Start the services
+
+* Start workflow engine
+    * If temporal-io is used, [start its services](temporal-io-workflow/start-services.md)
+* [Start order-service](order-service/start-services.md)
+
+
+### Execute workflows
+
+See [Workflow Execution Showcase](doc/workflow-execution-showcase.md)

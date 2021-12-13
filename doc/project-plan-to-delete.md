@@ -28,8 +28,11 @@
 * Query -- done
 
 ## Update Readme.md
-* How to run
-  * The servers
-  * CURL to do test
+* Start up the servers 
+* Run and check results, in an independent doc of root dir
+
+## How it works 
+* The gist
+* System interaction  - using puml
   
 ## Delete this file
