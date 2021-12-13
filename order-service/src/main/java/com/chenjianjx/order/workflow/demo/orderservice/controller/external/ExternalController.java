@@ -58,10 +58,4 @@ public class ExternalController {
         orderFlowService.pizzaPrepared(orderId);
         log.info("Sent 'pizzaPrepared' to workflow engine with orderId {}", orderId);
     }
-
-
-//    @GetMapping("/{orderId}")
-//    public Order getOrder(@PathVariable("orderId") UUID orderId) {
-//        return null;
-//    }
 }
