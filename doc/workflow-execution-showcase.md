@@ -1,5 +1,8 @@
 # Workflow execution showcase
 
+You will invoke public endpoints of `order-service` with `curl` 
+
+
 ## Create order
 
 ```
@@ -18,9 +21,9 @@ You will see an orderId returned.
 ```
 
 Go to workflow engine's console to see the created workflow 
-  * If temporal.io is used, go to http://localhost:8088 . The status will be "Running"
+  * If temporal.io is used, go to its web console http://localhost:8088 . The status will be "Running"
 
-You can go to http://localhost:12111/ to see an order has been `persisted`
+You can go to Mongo web UI http://localhost:12111/ to see an order has been `persisted`
 
 ## Get order status
 
@@ -53,10 +56,10 @@ curl --location --request PUT 'http://localhost:12110/orders/approve' \
 
 ```
 
-Go to [MailHog](http://localhost:12112/),  you should be able to see an rejection email. 
+Go to MailHog web http://localhost:12112/,  you should be able to see a rejection email. 
 
 Go to workflow engine's console to see the workflow status
-* If temporal.io is used, go to http://localhost:8088 . The status will be "Completed" now
+* If temporal.io is used, go to its web console http://localhost:8088 . The status will be "Completed" now
 
 
 Query the status again. You will see
@@ -93,7 +96,7 @@ curl --location --request PUT 'http://localhost:12110/orders/approve' \
 }'
 ```
 
-After this your workflow is still running because the order is waiting for "pizza preparation"  
+After this your workflow is still `running` because the order is waiting for "pizza preparation"  
 
 ### Send "pizza prepared" event
 
