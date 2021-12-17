@@ -12,7 +12,7 @@ Implement the pizza order process from [camunda doc](https://camunda.com/blog/20
 
 ![architecture](./doc/architecture.drawio.png)
 
-### Order service is the facade
+### Biz service is facade
 
 External services will invoke the `Order Service` using parameters like `orderId`. They know nothing about workflow engine.
 
@@ -21,6 +21,13 @@ External services will invoke the `Order Service` using parameters like `orderId
 The workflow engine knows little about order's biz logic. 
 * It just invokes the logic in `Order Service`, as it is an orchestrator
 * It won't store order data by itself
+
+### Note: in real life there may be other biz services
+There may be `Item Service`, `Payment Service` etc.   They will also interact with the workflow engine and carry out workflow activities.
+
+For simplicity in this demo `Order Service` is the only biz service.
+
+
 
 
 ## Try it
